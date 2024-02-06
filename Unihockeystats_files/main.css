@@ -1,0 +1,731 @@
+html, body {
+	background-color: #DDDDDD;
+}
+
+header {
+	position: relative;
+	background-color: #333333;
+	color: white;
+	width: 90%;
+	/* min-width: 1200px; */
+	min-height: 100px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+aside {
+	display: none !important;
+}
+
+#menuToggle input {
+	display: none;
+}
+
+@media screen and (max-width: 1230px) {
+	header {
+		width: 100% !important;
+	}
+	
+	footer {
+		width: 100% !important;
+	}
+	
+	main {
+		width: 100% !important;
+	}
+	
+	table.team_stats {
+		width: 100% !important;
+	}
+	
+	.bp1230 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	
+	header {
+		width: 100% !important;
+	}
+	
+	footer {
+		width: 100% !important;
+	}
+	
+	aside {
+		display: block !important;
+	}
+	
+	header nav {
+		display: none;
+	}
+	
+	#map {
+		height: 270px !important;
+	}
+	
+	.hamburger {
+		height: 0px;
+		width: 0px;
+	}
+	
+	#menuToggle
+	{
+		display: block;
+		position: relative;
+		top: 80px;
+		left: 30px;
+		
+		z-index: 30;
+		
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	
+	#menuToggle a
+	{
+		text-decoration: none;
+		color: white;
+	}
+	
+	#menuToggle input
+	{
+		display: block;
+		width: 40px;
+		height: 32px;
+		position: absolute;
+		top: -7px;
+		left: -5px;
+		
+		cursor: pointer;
+		
+		opacity: 0; /* hide this */
+		z-index: 2; /* and place it over the hamburger */
+		
+		-webkit-touch-callout: none;
+		
+		/* margin-left: -100px;
+		top: -50px; */
+	}
+	
+	/*
+	 * Just a quick hamburger
+	 */
+	#menuToggle span
+	{
+		display: block;
+		width: 33px;
+		height: 4px;
+		margin-bottom: 5px;
+		position: relative;
+		
+		background: #cdcdcd;
+		border-radius: 3px;
+		
+		z-index: 1;
+		
+		transform-origin: 4px 0px;
+		
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+					background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+					opacity 0.55s ease;
+		/* margin-left: -100px;
+		top: -50px; */
+	}
+	
+	#menuToggle span:first-child
+	{
+	  transform-origin: 0% 0%;
+	}
+	
+	#menuToggle span:nth-last-child(2)
+	{
+	  transform-origin: 0% 100%;
+	}
+	
+	/* 
+	 * Transform all the slices of hamburger
+	 * into a crossmark.
+	 */
+	#menuToggle input:checked ~ span
+	{
+	  opacity: 1;
+	  transform: rotate(45deg) translate(-2px, -1px);
+	  background: white;
+	}
+	
+	/*
+	 * But let's hide the middle one.
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(3)
+	{
+	  opacity: 0;
+	  transform: rotate(0deg) scale(0.2, 0.2);
+	}
+	
+	/*
+	 * Ohyeah and the last one should go the other direction
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(2)
+	{
+	  transform: rotate(-45deg) translate(0, -1px);
+	}
+	
+	/*
+	 * Make this absolute positioned
+	 * at the top left of the screen
+	 */
+	.nav
+	{
+		display: inherit !important;
+		position: absolute;
+		width: 300px;
+		margin: -107px 0 0 -30px;
+		padding: 50px;
+		padding-top: 125px;
+		
+		background: black;
+		list-style-type: none;
+		-webkit-font-smoothing: antialiased;
+		/* to stop flickering of text in safari */
+		
+		transform-origin: 0% 0%;
+		transform: translate(-100%, 0);
+		
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+	}
+	
+	.nav-link
+	{
+		padding: 0rem 1rem !important;
+	}
+	
+	.nav li
+	{
+	  padding: 10px 0;
+	  font-size: 22px;
+	}
+	
+	/*
+	 * And let's slide it in from the left
+	 */
+	#menuToggle input:checked ~ ul
+	{
+	  transform: none;
+	}
+	
+	header section#suche {
+		float: none !important;
+		margin-right: 0px !important;
+		margin-top: 10px !important;
+	}
+	
+	header #login {
+		margin-right: 30px;
+		float: none !important;
+		margin-top: 0px !important;
+	}
+	
+	header #archiv {
+		position: relative;
+		margin-right: 0px !important;
+		margin-top: 10px !important;
+		float: none !important;
+	}
+	
+	#searchresults {
+		right: auto !important;
+		margin-left: -102px;
+	}
+	
+	main {
+		width: 100% !important;
+	}
+	
+	table.team_stats, main table.stats_start {
+		width: 100% !important;
+	}
+	
+	.bp992 {
+		display: none;
+	}
+	
+	.table_wrapper_scrollable {
+		overflow-x: scroll;
+		overflow-y: visible;
+		height: auto;
+	}
+}
+
+/*
+header.wider {
+	min-width: 1200px;
+} */
+
+header h1 {
+	margin: 0px;
+	padding: 0px;
+}
+
+header nav {
+	position: relative;
+	background-color: black;
+	margin-bottom: 0px;
+	margin-top: -12px;
+	margin-left: 50px;
+	margin-right: 20px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+header nav a, header nav a:link {
+	color: white;
+}
+
+header nav a:visited {
+	color: white;
+}
+
+header section#suche {
+	position: relative;
+	margin-right: 30px;
+	float: right;
+	margin-top: 17px;
+	z-index: 10;
+}
+
+header #login {
+	position: relative;
+	margin-right: 30px;
+	float: right;
+	margin-top: -30px;
+	height: 20px;
+}
+
+header #login img {
+	height: 20px;
+}
+
+header #archiv {
+	position: relative;
+	margin-right: -150px;
+	margin-top: -30px;
+	float: right;
+}
+
+#suche h2 {
+	margin: 10px;
+}
+
+#suche input {
+	width: 200px;
+}
+
+#searchresults {
+	text-align: left;
+	display: none;
+	position: absolute;
+	width: 204px;
+	right: 0px;
+	color: black;
+	border: 1px solid #555555;
+	background: #DDDDDD;
+}
+
+#searchresults a {
+	display: block;
+	padding-left: 10px;
+}
+
+#searchresults a:hover {
+	background-color: #AAAAAA;
+	transition: background-color 0.5s;
+}
+
+#searchresults ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	line-height: 1.5;
+}
+
+#searchresults ul li {
+	border-bottom: 1px dotted black;
+}
+
+span.helper {
+	height: 100%;
+}
+
+main {
+	width: 90%;
+	/* min-width: 1200px; */
+	margin: 0px auto;
+	background-color: #EEEEEE;
+}
+/*
+main.wider {
+	min-width: 1200px;
+} */
+
+span.cleaner {
+	height: 0px;
+	display: block;
+}
+
+span.message {
+	display: block;
+	text-align: center;
+	font-size: 14pt;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+span.info {
+	box-shadow: 0px 0px 10px blue;
+}
+
+span.error {
+	box-shadow: 0px 0px 10px red;
+}
+
+span.success {
+	box-shadow: 0px 0px 10px green;
+}
+
+th {
+	text-align: left;
+}
+
+th.title {
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+tr:nth-child(odd) {
+	background-color: #DDDDDD;
+}
+
+tr:nth-child(even) {
+	background-color: transparent;
+}
+
+main table.transparent tr, td.transparent {
+	background-color: transparent;
+}
+
+td {
+	padding: 2px;
+}
+
+td label {
+	margin-bottom: 0px;
+}
+
+table.team_stats td.left, td.left {
+	text-align: left;
+}
+
+/* table.team_stats td.sortby::before {
+	box-shadow: inset -15px 0 15px -15px #000000;
+	content: " ";
+} */
+
+table.team_stats td.sortby {
+	background-color: white;
+}
+
+table.team_stats th.sortby {
+	background-color: #BBBBBB;
+}
+
+table.team_stats th.sortby:after {
+	font-family: "Font Awesome 5 Free";
+}
+
+table.team_stats th.desc:after {
+	content: "\f0dd";
+	margin-right: -3px;
+	margin-left: 3px;
+}
+
+table.team_stats th.asc:after {
+	content: "\f0de";
+	margin-right: -3px;
+	margin-left: 3px;
+}
+
+/* table.team_stats td.sortby::after {
+	box-shadow: inset 15px 0 15px -15px #000000;
+	content: " ";
+} */
+
+table.team_stats {
+	width: 1100px;
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+table.team_stats th {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+table.team_stats th.clickable, th.player_stats {
+	cursor: pointer;
+}
+
+.pages {
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+li.page-item.active a.page-link {
+	background-color: #BBBBBB;
+	border-color: #BBBBBB;
+}
+
+main table.stats_start {
+	width: 750px;
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+main div.loading-wrapper {
+	position: absolute;
+	right: 50%;
+}
+main div.loading {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	right: -50%;
+	top: 150px;
+	display: none;
+}
+
+main div.loading.visible {
+	display: initial;
+}
+
+.datum {
+	width: 150px;
+}
+
+td.logo {
+	width: 55px;
+}
+
+.trenner {
+	width: 15px;
+	text-align: center;
+}
+
+.rechts {
+	text-align: left;
+}
+
+.links {
+	text-align: right;
+}
+
+table.team_stats td, table.team_stats th {
+	text-align: center;
+}
+
+div.tab, div.player_tab {
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid black;
+	cursor: pointer;
+	margin: 0px;
+	transition: 0.5s background-color;
+}
+
+div.aktiv {
+	background-color: #BBBBBB;
+}
+
+div.tab:hover {
+	background-color: #BBBBBB;
+}
+
+footer {
+	width: 90%;
+	/* min-width: 1200px; */
+	margin: 0px auto;
+	text-align: center;
+	background-color: #333333;
+	color: white;
+}
+/*
+footer.wider {
+	min-width: 1200px;
+}
+*/
+a:link {
+	text-decoration: none;
+	color: #1A4C7B;
+	-webkit-transition: font-size 0.5s; /* Safari */
+    transition: font-size 0.5s;
+}
+
+a:visited {
+	color: #1D4C7B; /* Hie Moritz, aber das wird nid blau blibe... Irgendwenn wird de das e angeri Farb bercho ;-) */
+}
+
+footer a:link, footer a:visited {
+	color: white;
+}
+/*
+.tooltip .player_club {
+	border: 1px solid blue;
+}
+
+.tooltip, .center {
+	text-align: center;
+}
+
+/* Tooltip text *
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+    white-space: nowrap;
+
+    /* Position the tooltip text *
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+
+    /* Fade in tooltip *
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext.two-lines {
+	top: 4px;
+}
+
+.tooltip .tooltiptext.th {
+	top: -3px;
+}
+
+.tooltip .tooltip-left {
+	right: 100%;
+}
+
+.tooltip .tooltip-right {
+	left: 100%;
+}
+
+.tooltip .tooltip-middle {
+    left: 21px;
+    margin-top: -40px;
+    transform:translateX(-50%);
+}
+
+.tooltip {
+    position: relative;
+}
+
+/* Tooltip arrow *
+.tooltip .tooltip-left::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    left: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #555;
+}
+
+.tooltip .tooltip-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    right: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #555 transparent transparent ;
+}
+
+.tooltip .tooltip-middle::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container *
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+*/
+/* a:hover {
+	font-size: 14pt;
+} */
+
+/* Player Updates */
+
+#player_image.isUploading {
+	background-image: url("/images/loading.gif");
+	background-size: 150px;
+	background-repeat: no-repeat;
+}
+
+/* Backend */
+
+span.clearfix {
+	clear: both;
+	height: 0px;
+	display: block;
+}
+
+span.title {
+	display: block;
+	font-size: 15pt;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+}
+
+div.bericht {
+	width: 50%;
+}
+
+div.left {
+	float: left;
+}
+
+div.right {
+	float: right;
+}
+
+:not(input[name="suchstring"]) ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #BBBBBB;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #BBBBBB;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #BBBBBB;
+}

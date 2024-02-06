@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)https://unihockeystats.ch/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+				<meta name="description" content="Hier sind Statistiken rund ums Schweizer Unihockey einzusehen.">
+<meta name="keywords" content="Unihockeystats, Unihockey, Floorball, Stats, Statistiken, Score, Skorerliste">
+				
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Unihockeystats</title>
+						<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async="" src="./Unihockeystats_files/js"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', 'G-258FJZ3NY7');
+		</script>
+						
+				<link rel="stylesheet" href="./Unihockeystats_files/main.css">
+				<link rel="stylesheet" href="./Unihockeystats_files/bootstrap.min.css">
+				<link rel="stylesheet" href="./Unihockeystats_files/all.min.css">
+				<script src="./Unihockeystats_files/jquery-3.1.1.min.js.Download"></script>
+				<script src="./Unihockeystats_files/js.js.Download"></script>
+				<script src="./Unihockeystats_files/bootstrap.bundle.min.js.Download"></script>
+			</head>
+			<body>
+				<aside>
+					<nav role="navigation" class="hamburger">
+						<div id="menuToggle">
+						<input type="checkbox">
+						<span></span>
+						<span></span>
+						<span></span>
+						<ul class="nav">
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/">Start</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/player_stats.php">Player Stats</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/team_stats.php">Team Stats</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/spiele.php">Spiele</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/halle.php">Hallen</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/diverses.php">Diverses</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/ideen.php">Feedback</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/scan.php">Spielbericht</a></li>
+						</ul>
+						</div>
+					</nav>
+				</aside>
+				<header>
+					<h1>Unihockeystats</h1>
+					<div id="login"><a href="https://unihockeystats.ch/backend/"><img src="./Unihockeystats_files/login.png" alt="Login"></a></div>
+					<section id="suche" onsubmit="return false;">
+						<form action="https://unihockeystats.ch/" name="suche"><input name="suchstring" placeholder="Ich suche nach..." autocomplete="off"></form>
+						<div id="searchresults"></div>
+					</section>
+					<div id="archiv">
+						Saison:
+						<select name="season">
+														    <option value="2016">
+							    	2016 / 2017							    </option>
+							    							    <option value="2017">
+							    	2017 / 2018							    </option>
+							    							    <option value="2018">
+							    	2018 / 2019							    </option>
+							    							    <option value="2019">
+							    	2019 / 2020							    </option>
+							    							    <option value="2020">
+							    	2020 / 2021							    </option>
+							    							    <option value="2021">
+							    	2021 / 2022							    </option>
+							    							    <option value="2022">
+							    	2022 / 2023							    </option>
+							    							    <option value="2023" selected="selected">
+							    	2023 / 2024							    </option>
+							    						</select>
+					</div>
+					<span class="helper">&nbsp;</span>
+					<nav role="navigation">
+						<ul class="nav">
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/">Start</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/player_stats.php">Player Stats</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/team_stats.php">Team Stats</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/spiele.php">Spiele</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/halle.php">Hallen</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://unihockeystats.ch/diverses.php">Diverses</a></li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="https://unihockeystats.ch/#" role="button" aria-haspopup="true" aria-expanded="false">Feedback</a>
+								<div class="dropdown-menu" style="background-color: black;">
+									<a class="dropdown-item" href="https://unihockeystats.ch/ideen.php">Feedback</a>
+									<a class="dropdown-item" href="https://unihockeystats.ch/scan.php">Spielbericht</a>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</header>
+				<main>
+		
+<div class="alert alert-info" style="margin-top: 5px; text-align: center;">Die Cup Spiele sollten nun korrekt erfasst und die Statistiken dementsprechend angepasst sein.
+Falls dennoch Fehler sind, meldet diese mir bitte via Feedbackformular.</div>
+
+Die Resultate sowie die Stats zu den Ligen, welche im ES Modus geführt werden, werden täglich um kurz nach Mitternacht direkt von swiss unihockey eingelesen.<br><br>
+
+<!-- <strong>Seite Swissunihockey:</strong> Für alle, welche keine Ligen und Gruppen mehr auswählen können, finden sich hier Direktlinks: <a href="/linksSU.php">Klick</a><br /><br /> -->
+
+<table class="stats_start transparent">
+	<tbody><tr>
+		<th colspan="3" class="title">Torcounter</th>
+	</tr>
+	<tr>
+		<th>Gesamt Spiele</th>
+		<th>Gespielte Spiele</th>
+		<th>Erzielte Tore</th>
+	</tr>
+		<tr>
+		<td>19580</td>
+		<td>14640</td>
+		<td>160483</td>
+	</tr>
+</tbody></table>
+<br>
+
+<table class="stats_start transparent">
+	<tbody><tr>
+		<th colspan="6" class="title">Meiste Skorerpunkte / Saison</th>
+	</tr>
+	<tr>
+		<th>Saison</th>
+		<th>Spieler</th>
+		<th>Sp</th>
+		<th>T</th>
+		<th>A</th>
+		<th>P</th>
+	</tr>
+	<!-- <tr>
+		<td colspan="6">Demnächst wieder vorhanden</td>
+	</tr> -->
+			<tr>
+			<td>2016</td>
+			<td>Billy Nilsson</td>
+			<td>25</td>
+			<td>46</td>
+			<td>41</td>
+			<td>87</td>
+		</tr>
+				<tr>
+			<td>2017</td>
+			<td>Gianluca Persici</td>
+			<td>36</td>
+			<td>37</td>
+			<td>77</td>
+			<td>114</td>
+		</tr>
+				<tr>
+			<td>2018</td>
+			<td>Noah Püntener</td>
+			<td>31</td>
+			<td>35</td>
+			<td>59</td>
+			<td>94</td>
+		</tr>
+				<tr>
+			<td>2019</td>
+			<td>Samuel Schneiter</td>
+			<td>26</td>
+			<td>46</td>
+			<td>36</td>
+			<td>82</td>
+		</tr>
+				<tr>
+			<td>2020</td>
+			<td>Michelle Wiki</td>
+			<td>20</td>
+			<td>35</td>
+			<td>22</td>
+			<td>57</td>
+		</tr>
+				<tr>
+			<td>2021</td>
+			<td>Dominic Hofer</td>
+			<td>33</td>
+			<td>65</td>
+			<td>34</td>
+			<td>99</td>
+		</tr>
+				<tr>
+			<td>2022</td>
+			<td>Isak Stöckel</td>
+			<td>35</td>
+			<td>53</td>
+			<td>55</td>
+			<td>108</td>
+		</tr>
+				<tr>
+			<td>2023</td>
+			<td>Daniel Weber</td>
+			<td>14</td>
+			<td>31</td>
+			<td>42</td>
+			<td>73</td>
+		</tr>
+		</tbody></table>
+<br>
+
+<table class="stats_start">
+	<tbody><tr>
+		<th colspan="8" class="title">Top 10 Skorer*</th>
+	</tr>
+	<tr>
+		<th>#</th>
+		<th>Spieler</th>
+		<th class="bp992">Liga**</th>
+		<th>Club</th>
+		<th>Sp</th>
+		<th>T</th>
+		<th>A</th>
+		<th>P</th>
+	</tr>
+			<tr>
+			<td>1.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=411958">Daniel Weber</a></td>
+			<td class="bp992">Herren GF 2. Liga</td>
+			<td><img src="./Unihockeystats_files/tccp751hvzdkwvr2xvps.png" alt="UHC B.S. Embrach" height="30px"></td>
+			<td>14</td>
+			<td>31</td>
+			<td>42</td>
+			<td>73</td>
+		</tr>
+				<tr>
+			<td>2.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=516875">Isak Stöckel</a></td>
+			<td class="bp992">Herren NLB</td>
+			<td><img src="./Unihockeystats_files/qnpc4ab2kx0bqgz3rdxp.png" alt="Ad Astra Obwalden" height="30px"></td>
+			<td>20</td>
+			<td>35</td>
+			<td>36</td>
+			<td>71</td>
+		</tr>
+				<tr>
+			<td>3.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=417722">Josha Meier</a></td>
+			<td class="bp992">Herren GF 2. Liga</td>
+			<td><img src="./Unihockeystats_files/tccp751hvzdkwvr2xvps.png" alt="UHC B.S. Embrach" height="30px"></td>
+			<td>15</td>
+			<td>42</td>
+			<td>24</td>
+			<td>66</td>
+		</tr>
+				<tr>
+			<td>4.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=487102">Andri Zoss</a></td>
+			<td class="bp992">Junioren U16 A</td>
+			<td><img src="./Unihockeystats_files/wzexemwhjredkhvgbawg.png" alt="UHC Thun" height="30px"></td>
+			<td>25</td>
+			<td>28</td>
+			<td>30</td>
+			<td>58</td>
+		</tr>
+				<tr>
+			<td>5.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=485246">Nico Niemack</a></td>
+			<td class="bp992">Junioren U16 A</td>
+			<td><img src="./Unihockeystats_files/bk3mcmk9qv0b0wxsx9sk.png" alt="Zug United" height="30px"></td>
+			<td>22</td>
+			<td>39</td>
+			<td>18</td>
+			<td>57</td>
+		</tr>
+				<tr>
+			<td>6.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=467064">Raphael Zellweger</a></td>
+			<td class="bp992">Herren GF 1. Liga</td>
+			<td><img src="./Unihockeystats_files/tjdblnahb3dyzdeeowtl.png" alt="Red Devils March-Höfe" height="30px"></td>
+			<td>29</td>
+			<td>39</td>
+			<td>14</td>
+			<td>53</td>
+		</tr>
+				<tr>
+			<td>7.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=467574">Ramon Wittig</a></td>
+			<td class="bp992">Junioren U21 B</td>
+			<td><img src="./Unihockeystats_files/nz1pjxplebmxooujipba.png" alt="Kloten-Dietlikon Jets" height="30px"></td>
+			<td>16</td>
+			<td>20</td>
+			<td>33</td>
+			<td>53</td>
+		</tr>
+				<tr>
+			<td>8.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=521510">Albin Sjögren</a></td>
+			<td class="bp992">Herren NLA</td>
+			<td><img src="./Unihockeystats_files/bk3mcmk9qv0b0wxsx9sk.png" alt="Zug United" height="30px"></td>
+			<td>19</td>
+			<td>17</td>
+			<td>35</td>
+			<td>52</td>
+		</tr>
+				<tr>
+			<td>9.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=473635">Cyrill Steinmann</a></td>
+			<td class="bp992">Herren GF 2. Liga</td>
+			<td><img src="./Unihockeystats_files/p3biuirdkquz0twbn8oy.png" alt="UHC Mutschellen" height="30px"></td>
+			<td>15</td>
+			<td>33</td>
+			<td>18</td>
+			<td>51</td>
+		</tr>
+				<tr>
+			<td>10.</td>
+			<td><a href="https://unihockeystats.ch/player.php?player_id=490356">Gian-Noah Lüthi</a></td>
+			<td class="bp992">Junioren U16 A</td>
+			<td><img src="./Unihockeystats_files/wzexemwhjredkhvgbawg.png" alt="UHC Thun" height="30px"></td>
+			<td>20</td>
+			<td>27</td>
+			<td>22</td>
+			<td>49</td>
+		</tr>
+			<tr>
+		<td colspan="8">*Alle Spiele und alle Punkte, egal welche Liga, zusammengezählt!</td>
+	</tr>
+	<tr class="bp992">
+		<td colspan="8">**Liga mit den meisten Spielen</td>
+	</tr>
+</tbody></table>
+<br>
+
+<table class="stats_start">
+	<tbody><tr>
+		<th colspan="7" class="title">Höchste Resultate</th>
+	</tr>
+	<tr>
+		<th>#</th>
+		<th>Liga</th>
+		<th>Heimteam</th>
+		<th>Gastteam</th>
+		<th colspan="3">Resultat</th>
+	</tr>
+			<tr>
+			<td>1.</td>
+			<td>Junioren B  Regional</td>
+			<td>ESV Eschenbach</td>
+			<td>UHC Red Devils Root</td>
+			<td style="text-align: center">46</td>
+			<td>:</td>
+			<td style="text-align: center">0</td>
+		</tr>
+				<tr>
+			<td>2.</td>
+			<td>Junioren C Regional</td>
+			<td>Eintracht Beromünster</td>
+			<td>Unihockey Luzern</td>
+			<td style="text-align: center">1</td>
+			<td>:</td>
+			<td style="text-align: center">46</td>
+		</tr>
+				<tr>
+			<td>3.</td>
+			<td>Junioren C Regional</td>
+			<td>Unihockey Luzern</td>
+			<td>Unihockey TV Grosswangen</td>
+			<td style="text-align: center">43</td>
+			<td>:</td>
+			<td style="text-align: center">1</td>
+		</tr>
+				<tr>
+			<td>4.</td>
+			<td>Cup Spiel</td>
+			<td>Kloten-Dietlikon Jets</td>
+			<td>UHC B.S. Embrach</td>
+			<td style="text-align: center">45</td>
+			<td>:</td>
+			<td style="text-align: center">3</td>
+		</tr>
+				<tr>
+			<td>5.</td>
+			<td>Junioren D Regional</td>
+			<td>Pfannenstiel Egg</td>
+			<td>UHC Laupen ZH</td>
+			<td style="text-align: center">41</td>
+			<td>:</td>
+			<td style="text-align: center">0</td>
+		</tr>
+				<tr>
+			<td>6.</td>
+			<td>Junioren C Regional</td>
+			<td>Eintracht Beromünster</td>
+			<td>Einhorn Hünenberg</td>
+			<td style="text-align: center">0</td>
+			<td>:</td>
+			<td style="text-align: center">40</td>
+		</tr>
+				<tr>
+			<td>7.</td>
+			<td>Cup Spiel</td>
+			<td>UHC Speicher Bears</td>
+			<td>UHCevi Gossau</td>
+			<td style="text-align: center">5</td>
+			<td>:</td>
+			<td style="text-align: center">44</td>
+		</tr>
+				<tr>
+			<td>8.</td>
+			<td>Cup Spiel</td>
+			<td>Fleurier Unihockey Club</td>
+			<td>SV Wiler-Ersigen</td>
+			<td style="text-align: center">16</td>
+			<td>:</td>
+			<td style="text-align: center">53</td>
+		</tr>
+				<tr>
+			<td>9.</td>
+			<td>Junioren C Regional</td>
+			<td>UHC Astros Rotkreuz</td>
+			<td>Eintracht Beromünster</td>
+			<td style="text-align: center">38</td>
+			<td>:</td>
+			<td style="text-align: center">1</td>
+		</tr>
+				<tr>
+			<td>10.</td>
+			<td>Junioren C Regional</td>
+			<td>UHT Semsales</td>
+			<td>St-Maurice Pécaporés</td>
+			<td style="text-align: center">2</td>
+			<td>:</td>
+			<td style="text-align: center">38</td>
+		</tr>
+		</tbody></table>
+
+		</main>
+		<footer>
+						<a href="https://unihockeystats.ch/impressum.php">generiert in 76ms</a>
+		</footer>
+	
+</body></html>

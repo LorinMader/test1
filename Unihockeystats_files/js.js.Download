@@ -1,0 +1,198 @@
+$(function() {
+	$("[name=liga]").change(function (e) {
+		$("[name=gruppe]").val(0);
+		updateTeams();
+		updateGruppen();
+	});
+	
+	$("[name=gruppe]").change(function (e) {
+		updateTeams();
+	});
+	
+	$("input").not("input[name=suchstring]").change(function (e) {
+		$("input[name=speichern]").prop("disabled", false);
+	});
+	
+	$("select[name=season]").change(function (e) {
+		var d = new Date();
+	    d.setTime(d.getTime() + (24*60*60*1000)); //1 Tag gültig
+	    var expires = "expires="+ d.toUTCString();
+		document.cookie = "season=" + $(this).val() + "; " + expires;
+		location.reload();
+	});
+	
+	$("input[name=suchstring]").on('input', function (e) {
+		suche = $("input[name=suchstring]").val();
+		if(suche == "")
+		{
+			$("#searchresults").css('display', 'none');
+			return;
+		}
+		$.ajax({
+			method: "POST",
+			url: "/ajax/suche.php",
+			data: { suchstring: suche }
+		})
+		.done(function(msg) {
+			$("#searchresults").css('display', 'inline');
+			$("#searchresults").html(msg);
+		});
+	});
+	
+	$("div").on('click', '.tab', function(e) {
+		if($(this).hasClass("player_stats"))
+			return;
+		updateTeamStats($(this).data("stats"));
+	});
+	$("div").on('click', '.clickable', function(e) {
+		if($(this).hasClass("player_stats"))
+			return;
+		val = $(this).data("sort");
+		if(val == last_sort)
+			dir = dir == "desc" ? "asc" : "desc";
+		else
+			dir = "desc";
+		last_sort = val;
+		updateTeamStats($(".aktiv").data("stats"), val, dir);
+	});
+	
+	$("div").not(".aktiv").on('click', '.player_tab', function(e) {
+		updatePlayerStats($(this).data("stats"));
+		last_sort = null;
+	});
+	$("div").on('click', '.player_stats', function(e) {
+		val = $(this).data("sort");
+		if(val == last_sort)
+			dir = dir == "desc" ? "asc" : "desc";
+		else
+			dir = "desc";
+		last_sort = val;
+		updatePlayerStats($(".aktiv").data("stats"), val, dir);
+	});
+	
+	$("div").on('click', '.page-link', function (e) {
+		console.log(last_sort);
+		updatePlayerStats($(".aktiv").data("stats"), last_sort, dir, $(this).data("seite"));
+		return false;
+	});
+});
+
+var dir = "desc";
+var last_sort;
+
+function updateTeamStats(stats_id, order_by = null, dir = "desc")
+{
+	location.hash = stats_id;
+	$('[data-toggle="tooltip"]').tooltip("disable");
+	$('[data-toggle="tooltip"]').tooltip("hide");
+	val = $("[name=liga]").val();
+	val = val.split(".");
+	league_id = val[0];
+	game_class_id = val[1];
+	group_id = $("[name=gruppe]").val();
+	if($("[name=gruppe]").length)
+		phase_id = $("[name=phase]").val();
+	else
+		phase_id = -1;
+	games = 0; //TODO Wert von Eingabefeld nehmen
+	if(stats_id == "Goals")
+		last_sort = 1;
+	else
+		last_sort = 5;
+	//showLoadingGif();
+	$.ajax({
+		method: "GET",
+		url: "/ajax/team_stats.php",
+		data: { league: league_id, game_class: game_class_id, phase: phase_id, gruppe: group_id, stats: stats_id, orderby: order_by, direction: dir, games_played: games }
+	})
+	.done(function(msg) {
+		$(".team_stats").html(msg);
+		$('[data-toggle="tooltip"]').tooltip();
+		$("main").height("auto");
+	});
+}
+
+function updatePlayerStats(stats_id, order_by = null, dir = "desc", seite = 1)
+{
+	location.hash = stats_id;
+	$('[data-toggle="tooltip"]').tooltip("disable");
+	$('[data-toggle="tooltip"]').tooltip("hide");
+	val = $("[name=liga]").val();
+	val = val.split(".");
+	league_id = val[0];
+	console.log($("[name=liga]").val());
+	game_class_id = val[1];
+	group_id = $("[name=gruppe]").val();
+	if($("[name=gruppe]").length)
+		phase_id = $("[name=phase]").val();
+	else
+		phase_id = -1;
+	if(stats_id == "Goals")
+		last_sort = 3;
+	team_id = $("[name=team]").val();
+	showLoadingGif();
+	$.ajax({
+		method: "GET",
+		url: "/ajax/player_stats.php",
+		data: { league: league_id, game_class: game_class_id, phase: phase_id, gruppe: group_id, stats: stats_id, orderby: order_by, direction: dir, team_id: team_id, seite: seite }
+	})
+	.done(function(msg) {
+		$(".team_stats").html(msg);
+		$('[data-toggle="tooltip"]').tooltip();
+		$("main").height("auto");
+		$(".loading").removeClass("visible");
+	});
+}
+
+function showLoadingGif()
+{
+	hoehe = $("main").height();
+	$(".loading").addClass("visible");
+	$("main").height(hoehe);
+}
+
+function updateGruppen()
+{
+	val = $("[name=liga]").val();
+	val = val.split(".");
+	//alert($("[name=liga]").data("typ"));
+	if(val[0] == 0 || $("[name=liga]").find(':selected').data("typ") == 1)
+	{
+		$("[name=gruppe]").css('display', 'none');
+		return;
+	}
+	league_id = val[0];
+	game_class_id = val[1];
+	$.ajax({
+		method: "POST",
+		url: "/ajax/gruppen.php",
+		data: { league: league_id, game_class: game_class_id }
+	})
+	.done(function(msg) {
+		$("[name=gruppe]").css('display', 'inline');
+		$("[name=gruppe]").html(msg);
+	});
+}
+
+function updateTeams()
+{
+	val = $("[name=liga]").val();
+	val = val.split(".");
+	if(val[0] == 0)
+	{
+		$("[name=team]").css('display', 'none');
+		return;
+	}
+	league_id = val[0];
+	game_class_id = val[1];
+	group_id = $("[name=gruppe]").val();
+	$.ajax({
+		method: "POST",
+		url: "/ajax/teams.php",
+		data: { league: league_id, game_class: game_class_id, gruppe: group_id }
+	})
+	.done(function(msg) {
+		$("[name=team]").css('display', 'inline');
+		$("[name=team]").html(msg);
+	});
+}
